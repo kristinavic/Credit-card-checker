@@ -1,0 +1,32 @@
+* {
+    font-family: Arial, Helvetica, sans-serif
+  }
+  
+  
+  h1 {
+    color: SeaGreen;
+  }
+  
+  
+  p, 
+  li {
+    font-size: 16px;
+  }
+  
+  
+  a {
+    text-decoration: none;
+  }
+
+  .text-in-a-box {
+    border: 1px solid turquoise;
+    padding: 10px 20px;
+    margin: 30px 30px;
+    display: inline-block;
+  }
+
+    .text-in-a-box:hover {
+        background-color: lightblue;
+        font-style: italic;
+    }
+  

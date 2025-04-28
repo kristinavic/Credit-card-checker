@@ -45,47 +45,61 @@ const validateCred = arr => {
             } else {
                 sumDigits += newArr[i];
             }
-        }   
-        
+        }           
     }
-
     sumDigits += lastDigit;
-
-    // console.log('Last digit ' + lastDigit) //test  
-    // console.log('Sum of all digits ' + sumDigits) //test  
-    // console.log('Modulo: ' + modulo) //test  
 
     //compare sumDigits to the lastDigit
     let modulo = sumDigits % 10 
 
     if (modulo === 0) {
-        console.log('The number is valid')
+        //console.log('The number is valid.')
+        return true;
     } else {
-        console.log('The number is invalid!')
+        //console.log('The number is invalid!')
+        return false;
     }
+}
+
+const findInvalidCards = arr => {
+    // check through the nested array for which numbers are invalid
+    // return another nested array of invalid cards
+
+    let invalidNumbers = [];
+
+    //looping throuh the array:
+    for (let i = 0; i < arr.length; i++) {
+        if (!validateCred(arr[i])) {
+            invalidNumbers.push(arr[i])
+        }             
+    } 
+    return invalidNumbers;    
 }
 
 
 
 
-console.log('Following numbers should be valid:')
-console.log(validateCred(valid1));
-console.log(validateCred(valid2));
-console.log(validateCred(valid3));
+//tests
+console.log(findInvalidCards(batch))
+
+// console.log('Following numbers should be valid:')
+ //console.log(validateCred(valid1));
+// console.log(validateCred(valid2));
+// console.log(validateCred(valid3));
 // console.log(validateCred(valid4));
 // console.log(validateCred(valid5));
 
-console.log('Following numbers should be invalid:')
-console.log(validateCred(invalid1));
-console.log(validateCred(invalid2));
-console.log(validateCred(invalid3));
+// console.log('Following numbers should be invalid:')
+// console.log(validateCred(invalid1));
+// console.log(validateCred(invalid2));
+// console.log(validateCred(invalid3));
 // console.log(validateCred(invalid4));
 // console.log(validateCred(invalid5));
 
-console.log('Following numbers could be anything:')
-console.log(validateCred(mystery1));
-console.log(validateCred(mystery2));
-console.log(validateCred(mystery3));
+// console.log('Following numbers could be anything:')
+// console.log(validateCred(mystery1));
+// console.log(validateCred(mystery2));
+// console.log(validateCred(mystery3));
 // console.log(validateCred(mystery4));
 // console.log(validateCred(mystery5));
 

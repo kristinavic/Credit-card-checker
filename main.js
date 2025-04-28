@@ -24,6 +24,7 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
+
 const validateCred = arr => {
     //return true when an array contains digits of a valid credit card number
     //return false when an array contains digits of an invalid credit card number
@@ -76,11 +77,33 @@ const findInvalidCards = arr => {
     return invalidNumbers;    
 }
 
+//identifies the credit card companies which issued faulty card nr.
+const idInvalidCardCompanies = arr => {
+    
+    let companies = [];
 
+    //looping throuh the array if invalid numbers:
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i][0] === 3) {
+            companies.push('American Express');
+        } else if (arr[i][0] === 4) {
+            companies.push('Visa');
+        } else if (arr[i][0] === 5) {
+            companies.push('Mastercard');
+        } else if (arr[i][0] === 6) {
+            companies.push('Discover');
+        } else {
+            console.log("Company not found.")
+        }
+    }
+    return [...new Set(companies)]; //creates new array without duplicates;
+}
 
 
 //tests
-console.log(findInvalidCards(batch))
+//console.log(findInvalidCards(batch));
+
+console.log(idInvalidCardCompanies(findInvalidCards(batch)));
 
 // console.log('Following numbers should be valid:')
  //console.log(validateCred(valid1));
